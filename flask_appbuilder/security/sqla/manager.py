@@ -1,4 +1,5 @@
 import logging
+import sys
 from typing import List, Optional
 import uuid
 
@@ -94,7 +95,7 @@ class SecurityManager(BaseSecurityManager):
             super(SecurityManager, self).create_db()
         except Exception as e:
             log.error(c.LOGMSG_ERR_SEC_CREATE_DB.format(str(e)))
-            exit(1)
+            sys.exit(1)
 
     def find_register_user(self, registration_hash):
         return (
